@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Windows;
 using System.Windows.Media;
 
 namespace RenderTheBetterEllipse
@@ -49,6 +50,12 @@ namespace RenderTheBetterEllipse
             }
 
             drawingContext.DrawEllipse(Fill, Stroke, new Point(RenderSize.Width / 2, RenderSize.Height / 2), size.Width / 2, size.Height / 2);
+
+            FormattedText formtxt = new FormattedText("Hello, Ellipse", CultureInfo.CurrentCulture, FlowDirection, new Typeface("Times New Roman Italic"), 24, Brushes.Black);
+
+            Point pt = new Point((RenderSize.Width - formtxt.Width) / 2, (RenderSize.Height - formtxt.Height) / 2);
+
+            drawingContext.DrawText(formtxt, pt);
         }
     }
 }

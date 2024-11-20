@@ -19,7 +19,7 @@ namespace RenderTheBetterEllipse
             BetterEllipse elips = new BetterEllipse();
             elips.Fill = Brushes.AliceBlue;
             elips.Stroke = new Pen(new LinearGradientBrush(Colors.CadetBlue, Colors.Chocolate, new Point(1, 0), new Point(0, 1)), 24);
-
+            elips.Width = 50;
             Content = elips;
             //SizeToContent = SizeToContent.WidthAndHeight;
         }
