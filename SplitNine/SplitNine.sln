@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitNine", "SplitNine\SplitNine.csproj", "{FCC2E0E4-BFEE-4184-80CD-2899E8C51994}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCC2E0E4-BFEE-4184-80CD-2899E8C51994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC2E0E4-BFEE-4184-80CD-2899E8C51994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC2E0E4-BFEE-4184-80CD-2899E8C51994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC2E0E4-BFEE-4184-80CD-2899E8C51994}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE24CD05-F8CC-4096-8EE8-94B7904D6681}
+	EndGlobalSection
+EndGlobal

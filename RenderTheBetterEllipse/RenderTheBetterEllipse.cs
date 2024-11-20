@@ -21,6 +21,7 @@ namespace RenderTheBetterEllipse
             elips.Stroke = new Pen(new LinearGradientBrush(Colors.CadetBlue, Colors.Chocolate, new Point(1, 0), new Point(0, 1)), 24);
 
             Content = elips;
+            //SizeToContent = SizeToContent.WidthAndHeight;
         }
     }
 }
