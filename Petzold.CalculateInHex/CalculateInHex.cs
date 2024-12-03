@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Petzold.CalculateInHex
 {
@@ -187,7 +188,41 @@ namespace Petzold.CalculateInHex
                 string strButton = (btn.Child as TextBlock).Text;
 
                 // 일치하는 버튼을 확인하기 위한 로직
+                if((chkey == strButton[0] && btn != btnDisplay && strButton != "Equals" && strButton != "Back") ||
+                    (chkey == '=' && strButton == "Equals") ||
+                    (chkey == '\r' && strButton == "Equals") ||
+                    (chkey == '\b' && strButton == "Back") ||
+                    (chkey == '\x1B' && btn == btnDisplay))
+                {
+                    // 키 입력을 처리하기 위해 Click 이벤트를 발생
+                    RoutedEventArgs argsClick = new RoutedEventArgs(RoundedButton.ClickEvent, btn);
+                    btn.RaiseEvent(argsClick);
+
+                    // 버튼이 눌린 것처럼 표시
+                    btn.IsPressed = true;
+
+                    // 버튼을 다시 떼어 놓는 상태로 만들기 위한 타이머 설정
+                    DispatcherTimer tmr = new DispatcherTimer();
+                    tmr.Interval = TimeSpan.FromMilliseconds(100);
+                    tmr.Tag = btn;
+                    tmr.Tick += TimerOnTick;
+                    tmr.Start();
+
+                    e.Handled = true;
+                }
             }
+        }
+
+        private void TimerOnTick(object? sender, EventArgs e)
+        {
+            // 눌린 버튼 복원
+            DispatcherTimer tmr = sender as DispatcherTimer;
+            RoundedButton btn = tmr.Tag as RoundedButton;
+            btn.IsPressed = false;
+
+            // 타이머 종료하고 이벤트 핸들러 제거
+            tmr.Stop();
+            tmr.Tick -= TimerOnTick;
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Petzold.CalculateInHex
             RadialGradientBrush brush = new RadialGradientBrush(IsPressed ? SystemColors.ControlDarkColor : SystemColors.ControlLightLightColor, SystemColors.ControlColor);
             brush.GradientOrigin = IsPressed ? new Point(0.75, 0.75) : new Point(0.25, 0.25);
 
-            dc.DrawRoundedRectangle(brush, new Pen(SystemColors.ControlDarkDarkBrush, 1), new Rect(new Point(0, 0), RenderSize), RenderSize.Width / 2, RenderSize.Height / 2);
+            dc.DrawRoundedRectangle(brush, new Pen(SystemColors.ControlDarkDarkBrush, 1), new Rect(new Point(0, 0), RenderSize), RenderSize.Height / 2, RenderSize.Height / 2);
         }
     }
 }
