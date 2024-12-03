@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -94,7 +89,7 @@ namespace Petzold.CalculateInHex
                     Grid.SetColumnSpan(btn, 2);
                     iCol += 2;
                 }
-                else 
+                else
                 {
                     btn.Width = 32;
                     if (0 == (iCol = (iCol + 1) % 5))
@@ -109,7 +104,7 @@ namespace Petzold.CalculateInHex
             // 클릭된 버튼 구하기
             RoundedButton btn = e.Source as RoundedButton;
 
-            if(btn == null)
+            if (btn == null)
                 return;
 
             // 버튼 텍스트와 첫 글자 구하기
@@ -117,7 +112,7 @@ namespace Petzold.CalculateInHex
             char chButton = strButton[0];
 
             // 몇 가지 특이한 경우
-            if(strButton == "Equals")
+            if (strButton == "Equals")
                 chButton = '=';
 
             if (btn == btnDisplay)
@@ -135,7 +130,7 @@ namespace Petzold.CalculateInHex
                     numDisplay = 0;
                     bNewNumber = false;
                 }
-                if(numDisplay <= ulong.MaxValue >> 4)
+                if (numDisplay <= ulong.MaxValue >> 4)
                     numDisplay = 16 * numDisplay + (ulong)(chButton - (Char.IsDigit(chButton) ? '0' : 'A' - 10));
             }
 
@@ -182,13 +177,13 @@ namespace Petzold.CalculateInHex
             char chkey = Char.ToUpper(e.Text[0]);
 
             // 버튼을 통한 루프
-            foreach(UIElement child in (Content as Grid).Children)
+            foreach (UIElement child in (Content as Grid).Children)
             {
                 RoundedButton btn = child as RoundedButton;
                 string strButton = (btn.Child as TextBlock).Text;
 
                 // 일치하는 버튼을 확인하기 위한 로직
-                if((chkey == strButton[0] && btn != btnDisplay && strButton != "Equals" && strButton != "Back") ||
+                if ((chkey == strButton[0] && btn != btnDisplay && strButton != "Equals" && strButton != "Back") ||
                     (chkey == '=' && strButton == "Equals") ||
                     (chkey == '\r' && strButton == "Equals") ||
                     (chkey == '\b' && strButton == "Back") ||
