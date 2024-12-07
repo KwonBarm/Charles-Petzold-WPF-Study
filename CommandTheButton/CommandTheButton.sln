@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandTheButton", "CommandTheButton\CommandTheButton.csproj", "{6763990A-BCE3-4F2C-9240-6E17401D0579}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandTheButton", "CommandTheButton.csproj", "{415E2FA7-6B9D-40D1-972A-84BB80F879CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6763990A-BCE3-4F2C-9240-6E17401D0579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6763990A-BCE3-4F2C-9240-6E17401D0579}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6763990A-BCE3-4F2C-9240-6E17401D0579}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6763990A-BCE3-4F2C-9240-6E17401D0579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415E2FA7-6B9D-40D1-972A-84BB80F879CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415E2FA7-6B9D-40D1-972A-84BB80F879CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415E2FA7-6B9D-40D1-972A-84BB80F879CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415E2FA7-6B9D-40D1-972A-84BB80F879CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4FB234A9-463B-4BD1-B250-61623C2AEF15}
+		SolutionGuid = {CB6DC4A6-07D0-471E-9791-EB4A944B7947}
 	EndGlobalSection
 EndGlobal

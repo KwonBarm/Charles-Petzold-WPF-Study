@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickTheButton", "ClickTheButton.csproj", "{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormatTheButton", "FormatTheButton.csproj", "{A78119B4-0DAE-4EBC-A255-81B4B9B1E5E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78119B4-0DAE-4EBC-A255-81B4B9B1E5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78119B4-0DAE-4EBC-A255-81B4B9B1E5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78119B4-0DAE-4EBC-A255-81B4B9B1E5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78119B4-0DAE-4EBC-A255-81B4B9B1E5E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {23ECF41E-6988-41D2-9F5D-FF28089FB6CD}
+		SolutionGuid = {8853DA07-C97B-4144-A074-91A829CEF3F5}
 	EndGlobalSection
 EndGlobal

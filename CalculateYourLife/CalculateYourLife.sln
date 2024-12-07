@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateYourLife", "CalculateYourLife\CalculateYourLife.csproj", "{89C0B5EC-7D9E-47CB-AE62-C2DA85F3C965}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateYourLife", "CalculateYourLife.csproj", "{1F21FF80-FFA2-480F-A39B-2B30C6ACBABB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89C0B5EC-7D9E-47CB-AE62-C2DA85F3C965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89C0B5EC-7D9E-47CB-AE62-C2DA85F3C965}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89C0B5EC-7D9E-47CB-AE62-C2DA85F3C965}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89C0B5EC-7D9E-47CB-AE62-C2DA85F3C965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F21FF80-FFA2-480F-A39B-2B30C6ACBABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F21FF80-FFA2-480F-A39B-2B30C6ACBABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F21FF80-FFA2-480F-A39B-2B30C6ACBABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F21FF80-FFA2-480F-A39B-2B30C6ACBABB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B05E2972-50EC-4DB0-B914-358DB993D281}
+		SolutionGuid = {38CDE9A3-CA0B-4D05-888C-DBB70324526D}
 	EndGlobalSection
 EndGlobal

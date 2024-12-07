@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrollCustomColors", "ScrollCustomColors\ScrollCustomColors.csproj", "{2065A2CA-BEFB-45BF-B020-6CD6C6FD2DA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrollCustomColors", "ScrollCustomColors.csproj", "{EBB88549-155C-46CC-B958-896155D414E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2065A2CA-BEFB-45BF-B020-6CD6C6FD2DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2065A2CA-BEFB-45BF-B020-6CD6C6FD2DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2065A2CA-BEFB-45BF-B020-6CD6C6FD2DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2065A2CA-BEFB-45BF-B020-6CD6C6FD2DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB88549-155C-46CC-B958-896155D414E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB88549-155C-46CC-B958-896155D414E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB88549-155C-46CC-B958-896155D414E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB88549-155C-46CC-B958-896155D414E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {55FCFD5F-2012-4579-A346-8591B8179C61}
+		SolutionGuid = {75D3AFC5-60A9-476F-9472-311C8381AEA5}
 	EndGlobalSection
 EndGlobal

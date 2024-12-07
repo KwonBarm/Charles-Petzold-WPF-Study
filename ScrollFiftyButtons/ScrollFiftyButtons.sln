@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrollFiftyButtons", "ScrollFiftyButtons\ScrollFiftyButtons.csproj", "{3296BB3B-3F97-4D39-9DF5-35911D5008CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrollFiftyButtons", "ScrollFiftyButtons.csproj", "{35E43A29-35A1-4020-815F-08F197F66C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3296BB3B-3F97-4D39-9DF5-35911D5008CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3296BB3B-3F97-4D39-9DF5-35911D5008CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3296BB3B-3F97-4D39-9DF5-35911D5008CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3296BB3B-3F97-4D39-9DF5-35911D5008CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35E43A29-35A1-4020-815F-08F197F66C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E43A29-35A1-4020-815F-08F197F66C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E43A29-35A1-4020-815F-08F197F66C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E43A29-35A1-4020-815F-08F197F66C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F28CE94D-A3C2-40BC-9684-6C24BAB0CD63}
+		SolutionGuid = {0EB25729-E8F1-4E2B-99C3-A9E4B0C0BE11}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleTheButton", "ToggleTheButton\ToggleTheButton.csproj", "{39B2B2A1-52DB-490A-894F-1862A27F5D4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleTheButton", "ToggleTheButton.csproj", "{38D7175D-40AC-47AB-94AD-BEAC20244D00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39B2B2A1-52DB-490A-894F-1862A27F5D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39B2B2A1-52DB-490A-894F-1862A27F5D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39B2B2A1-52DB-490A-894F-1862A27F5D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39B2B2A1-52DB-490A-894F-1862A27F5D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D7175D-40AC-47AB-94AD-BEAC20244D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D7175D-40AC-47AB-94AD-BEAC20244D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D7175D-40AC-47AB-94AD-BEAC20244D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D7175D-40AC-47AB-94AD-BEAC20244D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D91B2DF4-4784-4AC5-B70D-C94A61E395EB}
+		SolutionGuid = {C748AC54-F6FF-4FF3-8B46-6F9E4B7DD842}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickTheButton", "ClickTheButton.csproj", "{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintTheButton", "PaintTheButton.csproj", "{6698607B-EE77-42BF-94D5-AAEE335D8500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3658AEB-EE9F-4E8A-AE1B-0E1BF0F9E6FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6698607B-EE77-42BF-94D5-AAEE335D8500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6698607B-EE77-42BF-94D5-AAEE335D8500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6698607B-EE77-42BF-94D5-AAEE335D8500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6698607B-EE77-42BF-94D5-AAEE335D8500}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {23ECF41E-6988-41D2-9F5D-FF28089FB6CD}
+		SolutionGuid = {8E12F75D-F8B5-419F-A5D8-4264BCED6927}
 	EndGlobalSection
 EndGlobal
