@@ -21,6 +21,13 @@ namespace Petzold.DupalicateUniformGrid
             unigrid.Columns = 5;
             Content = unigrid;
 
+            // Test
+            // SizeToContent = SizeToContent.WidthAndHeight;
+            // unigrid.VerticalAlignment = VerticalAlignment.Center;
+            // unigrid.HorizontalAlignment = HorizontalAlignment.Center;
+            //unigrid.Width = 100;
+            //unigrid.Height = 100;
+
             // UniformGridAlmost에 임의의 크기를 가진 버튼을 채움
             Random rand = new Random();
 
@@ -31,6 +38,8 @@ namespace Petzold.DupalicateUniformGrid
                 btn.Content = btn.Name;
                 btn.FontSize += rand.Next(10);
                 unigrid.Children.Add(btn);
+                //btn.HorizontalAlignment = HorizontalAlignment.Center;
+                //btn.VerticalAlignment = VerticalAlignment.Center;
             }
 
             AddHandler(Button.ClickEvent,new RoutedEventHandler(ButtonOnClick));
