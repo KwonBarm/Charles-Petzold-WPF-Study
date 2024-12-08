@@ -40,7 +40,7 @@ namespace Petzold.SelectColor
             get { return brush; }
         }
 
-        // Colord을 인자로 하는 생성자
+        // Color을 인자로 하는 생성자
         public ColorCell(Color clr)
         {
             // DrawingVisual을 생성해 필드에 저장
