@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -48,7 +43,7 @@ namespace Petzold.SelectColor
             btn = new Button();
             btn.Content = "Do-nothing button\nto test tabbing";
             btn.Margin = new Thickness(24);
-            btn.HorizontalAlignment= HorizontalAlignment.Center;
+            btn.HorizontalAlignment = HorizontalAlignment.Center;
             btn.VerticalAlignment = VerticalAlignment.Center;
             stack.Children.Add(btn);
         }
