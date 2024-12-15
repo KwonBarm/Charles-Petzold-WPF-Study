@@ -23,7 +23,7 @@ namespace Petzold.CircleTheButtons
 
             Random rand = new Random();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 Button btn = new Button();
                 btn.Content = "Button Number " + (i + 1);

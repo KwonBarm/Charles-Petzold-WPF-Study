@@ -83,6 +83,9 @@ namespace Petzold.CircleTheButtons
                 // 중심에서 엘리멘트 변까지의 거리를 계산
                 innerEdgeFromCenter = sizeLargest.Height / 2 / Math.Tan(Math.PI * angleEach / 360);
                 outerEdgeFromCenter = innerEdgeFromCenter + sizeLargest.Width;
+
+                // 가장 큰 자식을 기준으로 원의 반지름을 계산
+                radius = Math.Sqrt(Math.Pow(sizeLargest.Height / 2, 2) + Math.Pow(outerEdgeFromCenter, 2));
             }
 
             // 원의 크기를 반환
