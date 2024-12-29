@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace Petzold.CircleTheButtons
 {
-    internal class RadialPanel : Panel
+    public class RadialPanel : Panel
     {
         // 의존성 속성
         public static readonly DependencyProperty OrientationProperty;
