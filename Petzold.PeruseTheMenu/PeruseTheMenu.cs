@@ -69,8 +69,10 @@ namespace Petzold.PeruseTheMenu
             MenuItem itemTaskbar = new MenuItem();
             itemTaskbar.Header = "_Show in Taskbar";
             itemTaskbar.IsCheckable = true;
-            itemTaskbar.IsChecked = ShowInTaskbar;
-            itemTaskbar.Click += TaskbarOnClick;
+            //itemTaskbar.IsChecked = ShowInTaskbar;
+            //itemTaskbar.Click += TaskbarOnClick;
+            itemTaskbar.SetBinding(MenuItem.IsCheckedProperty, "ShowInTaskbar");
+            itemTaskbar.DataContext = this;
             ItemWindow.Items.Add(itemTaskbar);
 
             MenuItem itemSize = new MenuItem();
