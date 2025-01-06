@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Petzold.CheckTheColor
 {
@@ -83,6 +84,11 @@ namespace Petzold.CheckTheColor
                     item.Tag = clr;
                     item.Click += handler;
                     itemParent.Items.Add(item);
+                    
+                    Rectangle rect = new Rectangle();
+                    rect.Fill = new SolidColorBrush(clr);
+                    rect.Width = (rect.Height = 12) *2;
+                    item.Icon = rect;
                 }
             }
         }
