@@ -4,7 +4,7 @@ using System.Windows.Media.Imaging;
 
 namespace Petzold.CutCopyAndPaste
 {
-    class CutCopyAndPaste : Window
+    public class CutCopyAndPaste : Window
     {
         TextBlock text;
         protected MenuItem itemCut, itemCopy, itemPaste, itemDelete;
@@ -78,30 +78,30 @@ namespace Petzold.CutCopyAndPaste
             itemEdit.Items.Add(itemDelete);
         }
 
-        private void EditOnOpened(object sender, RoutedEventArgs e)
+        protected void EditOnOpened(object sender, RoutedEventArgs e)
         {
             itemCut.IsEnabled = itemCopy.IsEnabled = itemDelete.IsEnabled = text.Text.Length > 0;
             itemPaste.IsEnabled = Clipboard.ContainsText();
         }
 
-        private void CutOnClick(object sender, RoutedEventArgs e)
+        protected void CutOnClick(object sender, RoutedEventArgs e)
         {
             CopyOnClick(sender, e);
             DeleteOnClick(sender, e);
         }
 
-        private void CopyOnClick(object sender, RoutedEventArgs e)
+        protected void CopyOnClick(object sender, RoutedEventArgs e)
         {
             if(text.Text != null && text.Text.Length > 0)
                 Clipboard.SetText(text.Text);
         }
 
-        private void PasteOnClick(object sender, RoutedEventArgs e)
+        protected void PasteOnClick(object sender, RoutedEventArgs e)
         {
             if (Clipboard.ContainsText())
                 text.Text = Clipboard.GetText();
         }
-        private void DeleteOnClick(object sender, RoutedEventArgs e)
+        protected void DeleteOnClick(object sender, RoutedEventArgs e)
         {
             text.Text = null;
         }
