@@ -19,6 +19,8 @@ namespace Petzold.CraftTheToolbar
         {
             Title = "Craft the Toolbar";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Width = 500;
+            Height = 300;
 
             RoutedUICommand[] comm =
             {
@@ -46,13 +48,19 @@ namespace Petzold.CraftTheToolbar
 
             // 윈도우 Content를 위한 DockPanel 생성
             DockPanel dock = new DockPanel();
-            dock.LastChildFill = false;
+            //dock.LastChildFill = false;
             Content = dock;
 
             // 윈도우 상단에 위치할 툴바 생성
             ToolBar toolBar = new ToolBar();
             dock.Children.Add(toolBar);
             DockPanel.SetDock(toolBar, Dock.Top);
+
+            #region 추가 테스트 구문
+            RichTextBox txtBox = new RichTextBox();
+            dock.Children.Add(txtBox);
+            txtBox.Focus();
+            #endregion
 
             //  툴바에 버튼 추가
             for (int i = 0; i < comm.Length; i++)
@@ -69,9 +77,24 @@ namespace Petzold.CraftTheToolbar
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri("pack://application:,,/Images/" + strImage[i]));
                 img.Stretch = Stretch.Fill;
-                img.Width = 60;
-                img.Height = 60;
-                btn.Content = img;
+                img.Width = 20;
+                img.Height = 20;
+
+
+                //btn.Content = img;
+                #region 추가 테스트 구문
+                StackPanel stack = new StackPanel();
+                stack.Orientation = Orientation.Vertical;
+                btn.Content = stack;
+
+                TextBlock txt = new TextBlock();
+                txt.Text = comm[i].Text;
+
+                stack.Children.Add(img);
+                stack.Children.Add(txt);
+                #endregion
+
+
 
                 // UICommand 텍스트 기반의 툴팁 생성
                 ToolTip tip = new ToolTip();
