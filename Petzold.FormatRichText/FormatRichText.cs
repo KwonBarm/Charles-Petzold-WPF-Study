@@ -18,6 +18,8 @@ namespace Petzold.FormatRichText
         {
             Title = "Format Rich Text";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Height = 600;
+            Width = 1000;
 
             // 윈도우 Content를 위한 DockPanel 생성
             DockPanel dock = new DockPanel();
@@ -34,7 +36,7 @@ namespace Petzold.FormatRichText
 
             // 다른 파일의 메소드 호출
             AddFileToolbar(tray, 0, 0);
-            //AddEditToolbar(tray, 1, 0);
+            AddEditToolbar(tray, 1, 0);
             //AddCharToolbar(tray, 2, 0);
             //AddParaToolbar(tray, 3, 0);
             //AddStatusBar(dock);

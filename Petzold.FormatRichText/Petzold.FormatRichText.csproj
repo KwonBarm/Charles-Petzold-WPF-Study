@@ -9,12 +9,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\CopyHS.png" />
+    <None Remove="Images\CutHS.png" />
+    <None Remove="Images\DeleteHS.png" />
     <None Remove="Images\NewDocumentHS.png" />
     <None Remove="Images\OpenHS.png" />
+    <None Remove="Images\PasteHS.png" />
+    <None Remove="Images\RedoHS.png" />
     <None Remove="Images\SaveHs.png" />
+    <None Remove="Images\UndoHS.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\CopyHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CutHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\DeleteHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PasteHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\RedoHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\SaveHs.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -25,6 +46,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\OpenHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\UndoHS.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

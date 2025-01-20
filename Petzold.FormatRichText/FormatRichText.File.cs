@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Petzold.FormatRichText
@@ -79,6 +78,8 @@ namespace Petzold.FormatRichText
         {
             FlowDocument flow = txtbox.Document;
             TextRange range = new TextRange(flow.ContentStart, flow.ContentEnd);
+
+            range.Text = "";
         }
 
         // Open : 대화상자를 출력하고 파일을 로딩
