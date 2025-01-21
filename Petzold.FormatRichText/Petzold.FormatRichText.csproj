@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\boldhs.png" />
+    <None Remove="Images\ColorHS.png" />
     <None Remove="Images\CopyHS.png" />
     <None Remove="Images\CutHS.png" />
     <None Remove="Images\DeleteHS.png" />
+    <None Remove="Images\fontHS.png" />
+    <None Remove="Images\ItalicHS.png" />
     <None Remove="Images\NewDocumentHS.png" />
     <None Remove="Images\OpenHS.png" />
     <None Remove="Images\PasteHS.png" />
@@ -21,6 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\boldhs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ColorHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\CopyHS.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -28,6 +38,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\DeleteHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\fontHS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ItalicHS.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\PasteHS.png">
