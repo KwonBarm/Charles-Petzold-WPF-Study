@@ -57,7 +57,7 @@ namespace Petzold.FormatRichText
             // 굵게 버튼 생성
             btnBold = new ToggleButton();
             btnBold.Checked += BoldButtonOnChecked;
-            btnBold.Unchecked += BoldButtonOnUnchecked;
+            btnBold.Unchecked += BoldButtonOnChecked;
             btnBold.BorderBrush = Brushes.Black;
             btnBold.BorderThickness = new Thickness(1);
             toolBar.Items.Add(btnBold);
@@ -75,7 +75,7 @@ namespace Petzold.FormatRichText
             // Italic 버튼 생성
             btnItalic = new ToggleButton();
             btnItalic.Checked += ItalicButtonOnChecked;
-            btnItalic.Unchecked += ItalicButtonOnUnchecked;
+            btnItalic.Unchecked += ItalicButtonOnChecked;
             btnItalic.BorderBrush = Brushes.Black;
             btnItalic.BorderThickness = new Thickness(1);
             toolBar.Items.Add(btnItalic);
@@ -107,7 +107,7 @@ namespace Petzold.FormatRichText
             item.Header = img;
 
             clrboxBackground = new ColorGridBox();
-            clrboxBackground.SelectionChanged += BackgroundColorOnSelection;
+            clrboxBackground.SelectionChanged += BackgroundOnSelectionChanged;
             item.Items.Add(clrboxBackground);
 
             tip = new ToolTip();
@@ -125,7 +125,7 @@ namespace Petzold.FormatRichText
             item.Header = img;
 
             clrboxForeground = new ColorGridBox();
-            clrboxForeground.SelectionChanged += ForegroundColorOnSelection;
+            clrboxForeground.SelectionChanged += ForegroundOnSelectionChanged;
             item.Items.Add(clrboxForeground);
 
             tip = new ToolTip();
@@ -136,6 +136,8 @@ namespace Petzold.FormatRichText
             txtbox.SelectionChanged += TextBoxOnSelectionChanged;
 
         }
+
+        
 
         // RichTextBox의 SelectionChanged 이벤트 핸들러
         private void TextBoxOnSelectionChanged(object sender, RoutedEventArgs e)
@@ -199,56 +201,83 @@ namespace Petzold.FormatRichText
             txtbox.Focus();
         }
 
-        private void ForegroundColorOnSelection(object sender, SelectionChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        // 폰트 크기 콤보 박스에 대한 핸들러
+        string strOriginal;
 
-        private void BackgroundColorOnSelection(object sender, SelectionChangedEventArgs e)
+        private void SizeComboOnGotFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void ItalicButtonOnUnchecked(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ItalicButtonOnChecked(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BoldButtonOnUnchecked(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BoldButtonOnChecked(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SizeComboOnKeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
+            strOriginal = (sender as ComboBox).Text;
         }
 
         private void SizeComboOnLostFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            double size;
+
+            if (Double.TryParse((sender as ComboBox).Text, out size))
+                txtbox.Selection.ApplyPropertyValue(FlowDocument.FontSizeProperty, size/0.75);
+            else
+                (sender as ComboBox).Text = strOriginal;
         }
 
-        private void SizeComboOnGotFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void SizeComboOnKeyDown(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            if(e.Key == Key.Escape)
+            {
+                (sender as ComboBox).Text = strOriginal;
+                e.Handled = true;
+                txtbox.Focus();
+            }
+            else if(e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                txtbox.Focus();
+            }
         }
 
         private void SizeComboOnSelection(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            ComboBox combo = e.Source as ComboBox;
+
+            if (combo.SelectedIndex != -1)
+            {
+                double size = (double)combo.SelectedValue;
+                txtbox.Selection.ApplyPropertyValue(FlowDocument.FontSizeProperty, size / 0.75);
+                txtbox.Focus();
+            }
         }
 
-        
+
+        // 굵기 버튼에 대한 핸들러
+        private void BoldButtonOnChecked(object sender, RoutedEventArgs e)
+        {
+            ToggleButton btn = e.Source as ToggleButton;
+
+            txtbox.Selection.ApplyPropertyValue(FlowDocument.FontWeightProperty, (bool)btn.IsChecked ? FontWeights.Bold : FontWeights.Normal);
+        }
+
+        private void BoldButtonOnUnchecked(object sender, RoutedEventArgs e)
+        {
+        }
+
+        // 이탤릭 버튼에 대한 핸들러
+        private void ItalicButtonOnChecked(object sender, RoutedEventArgs e)
+        {
+            ToggleButton btn = e.Source as ToggleButton;
+
+            txtbox.Selection.ApplyPropertyValue(FlowDocument.FontStyleProperty, (bool)btn.IsChecked ? FontStyles.Italic : FontStyles.Normal);
+        }
+
+        //  배경색 변경에 대한 핸들러
+        private void BackgroundOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ColorGridBox clrbox = e.Source as ColorGridBox;
+            txtbox.Selection.ApplyPropertyValue(FlowDocument.BackgroundProperty, clrbox.SelectedValue);
+        }
+
+        private void ForegroundOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ColorGridBox clrbox = e.Source as ColorGridBox;
+            txtbox.Selection.ApplyPropertyValue(FlowDocument.ForegroundProperty, clrbox.SelectedValue);
+        }
     }
 }
