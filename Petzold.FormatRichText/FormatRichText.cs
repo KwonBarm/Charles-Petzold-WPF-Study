@@ -39,7 +39,7 @@ namespace Petzold.FormatRichText
             AddEditToolbar(tray, 1, 0);
             AddCharToolbar(tray, 2, 0);
             AddParaToolbar(tray, 3, 0);
-            //AddStatusBar(dock);
+            AddStatusBar(dock);
 
             // RichTextBox를 나머지 클라이언트 여역을 채우고 포커스를 위치시킨다.
             dock.Children.Add(txtbox);
