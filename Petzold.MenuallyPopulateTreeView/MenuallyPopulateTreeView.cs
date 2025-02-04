@@ -16,6 +16,7 @@ namespace Petzold.MenuallyPopulateTreeView
         {
             Title = "Menually Populate TreeView";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            SizeToContent = SizeToContent.WidthAndHeight;
 
             TreeView tree = new TreeView();
             Content = tree;
