@@ -41,10 +41,9 @@ namespace Petzold.RecurseDirectoriesIncrementally._20250210
 
             foreach (DirectoryInfo dirChild in dirs)
                 Items.Add(new DirectoryTreeViewItem(dirChild));
-
-            // populate 하위 항목에 대한 이벤트 오버라이딩
         }
 
+        // populate 하위 항목에 대한 이벤트 오버라이딩
         protected override void OnExpanded(RoutedEventArgs e)
         {
             base.OnExpanded(e);
