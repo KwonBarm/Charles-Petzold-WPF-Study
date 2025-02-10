@@ -10,7 +10,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Remove="Images\35FLOPPY.png" />
+    <None Remove="Images\CDDRIVE.png" />
+    <None Remove="Images\CLOSEFOLD.png" />
+    <None Remove="Images\DRIVE.png" />
+    <None Remove="Images\OPENFOLD.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\35FLOPPY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CDDRIVE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CLOSEFOLD.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\DRIVE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OPENFOLD.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

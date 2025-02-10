@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace Petzold.RecurseDirectoriesIncrementally._20250210
 {
-    class ImagedTreeViewItem : TreeViewItem
+    internal class ImagedTreeViewItem : TreeViewItem
     {
         TextBlock text;
         Image img;
@@ -20,6 +20,7 @@ namespace Petzold.RecurseDirectoriesIncrementally._20250210
             img = new Image();
             img.VerticalAlignment = VerticalAlignment.Center;
             img.Margin = new Thickness(0, 0, 2, 0);
+            img.Width = img.Height = 32;
             stack.Children.Add(img);
 
             text = new TextBlock();
