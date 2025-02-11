@@ -26,6 +26,7 @@ namespace Petzold.TemplateTheTree.트리뷰
                 List<DiskDirectory> dirs = new List<DiskDirectory>();
                 DirectoryInfo[] subdirs;
 
+                // 권한이 없는 디렉토리에 대한 예외 처리
                 try
                 {
                     subdirs = dirinfo.GetDirectories();
