@@ -29,6 +29,8 @@ namespace Petzold.TemplateTheTree.트리뷰
             HierarchicalDataTemplate template = new HierarchicalDataTemplate(typeof(DiskDirectory));
 
             // ItemSource로 Subdirectories 속성을 설정
+            // 모든 TreeViewItem이 Subdirectories 속성을 통해 하위 폴더를 자동으로 가져오게 하기 위함
+            // 재귀적으로 트리 구조를 만들어주는 역할
             template.ItemsSource = new Binding("Subdirectories");
 
             // TextBlock에 대한 FrameworkElementFactory 생성
