@@ -10,7 +10,7 @@ namespace Petzold.ShowClassHierarchy
         public TypeTreeViewItem() { }
         public TypeTreeViewItem(Type type)
         {
-            this.type = type;
+            Type = type;
         }
 
         // Type 타입의 Public Type 속성
