@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,8 +21,11 @@ namespace Petzold.ShowClassHierarchy
             AssemblyName[] anames = Assembly.GetExecutingAssembly().GetReferencedAssemblies();
 
             // 어셈블리 목록에 추가
-            foreach(AssemblyName aname in anames)
+            foreach (AssemblyName aname in anames)
+            {
                 assemblies.Add(Assembly.Load(aname));
+                Debug.WriteLine(aname.FullName);
+            }
 
             // sorted 리스트에 typeRoot의 하위 요소를 저장
             // SortedList<TKey, TValue> : 키와 값을 기준으로 자동 정렬되는 컬렉션
@@ -35,7 +39,10 @@ namespace Petzold.ShowClassHierarchy
             foreach (Assembly assembly in assemblies)
                 foreach (Type type in assembly.GetTypes())
                     if (type.IsPublic && type.IsSubclassOf(typeRoot))
+                    {
                         classes.Add(type.Name, type);
+                        Debug.WriteLine(type.Name);
+                    }
 
             // 루트 항목 생성
             TypeTreeViewItem item = new TypeTreeViewItem(typeRoot);
@@ -50,7 +57,7 @@ namespace Petzold.ShowClassHierarchy
         // KeyValuePair<TKey, TValue> : 키와 값을 나타내는 구조체
         // SortedList<string, Type> list의 모든 요소를 KeyValuePair로 받아서 key와 value 구조체 형식으로 kvp에 저장
         // kvp.Value.BaseType == itemBase.Type : kvp의 value의 BaseType가 itemBase의 Type과 같다면
-        // BaseType 속성은 현재 Type의 기본 클래스를 가져옴
+        // BaseType 속성은 현재 Type의 부모 클래스를 가져옴
         private void CreateLinkedItems(TypeTreeViewItem itemBase, SortedList<string, Type> list)
         {
             foreach(KeyValuePair<string, Type> kvp in list)
