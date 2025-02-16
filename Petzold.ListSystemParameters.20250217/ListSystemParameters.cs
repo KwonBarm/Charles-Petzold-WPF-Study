@@ -48,10 +48,10 @@ namespace Petzold.ListSystemParameters._20250217
             {
                 if (prop.PropertyType != typeof(ResourceKey))
                 {
-                    SystemParam sysparma= new SystemParam();
-                    sysparma.Name = prop.Name;
-                    sysparma.Value = prop.GetValue(null, null);
-                    lstvue.Items.Add(sysparma);
+                    SystemParam sysparam= new SystemParam();
+                    sysparam.Name = prop.Name;
+                    sysparam.Value = prop.GetValue(null, null);
+                    lstvue.Items.Add(sysparam);
                 }
             }
         }
