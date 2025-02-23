@@ -4,6 +4,8 @@ using System.Windows.Data;
 
 namespace Petzold.ExploreDependencyProperties
 {
+
+    // 바인딩 된 의존성 속성이 FrameworkPropertyMetadataOptions 값 중에서 어떤 옵션이 True인지를 확인하려는 경우 사용
     internal class MetadataToFlags : IValueConverter
     {
         public object Convert(object obj, Type type, object param, CultureInfo culture)
