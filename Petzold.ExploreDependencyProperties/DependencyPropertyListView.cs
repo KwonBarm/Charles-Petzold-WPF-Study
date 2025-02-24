@@ -42,7 +42,7 @@ namespace Petzold.ExploreDependencyProperties
                         list.Add(info.Name, (DependencyProperty)info.GetValue(null));
 
                 // ListView에 ItemsSource로 설정
-                lstvue.ItemsSource = list;
+                lstvue.ItemsSource = list.Values;
             }
         }
 
