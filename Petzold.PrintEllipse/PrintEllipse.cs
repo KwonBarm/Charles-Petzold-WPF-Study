@@ -45,8 +45,8 @@ namespace Petzold.PrintEllipse
             if (dig.ShowDialog().GetValueOrDefault())
             {
                 // DrawingVisual을 생성하고 DrawingContext를 준비
-                DrawingVisual vis = new DrawingVisual();
-                DrawingContext dc = vis.RenderOpen();
+                DrawingVisual vis = new DrawingVisual(); // 빈 캔버스를 준비하는 단계
+                DrawingContext dc = vis.RenderOpen(); // 그릴 준비를 마치는 과정
 
                 // 타원을 출력
                 dc.DrawEllipse(Brushes.LightGray, new Pen(Brushes.Black, 3), new Point(dig.PrintableAreaWidth / 2 , dig.PrintableAreaHeight /2), dig.PrintableAreaWidth / 2 , dig.PrintableAreaHeight / 2);
