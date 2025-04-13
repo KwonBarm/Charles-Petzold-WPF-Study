@@ -44,6 +44,8 @@ namespace Petzold.PrintEllipse
             if (dig.ShowDialog().GetValueOrDefault())
             {
                 // DrawingVisual을 생성하고 DrawingContext를 준비
+                // DrawingVisual은 WPF에서 그리기 작업을 수행하는 데 사용되는 클래스, 벡터 기반 그래픽을 저장하는 용도
+                // RenderOpen() 그리기 작업을 시작하기 위함
                 DrawingVisual vis = new DrawingVisual();
                 DrawingContext dc = vis.RenderOpen();
 
@@ -57,8 +59,5 @@ namespace Petzold.PrintEllipse
                 dig.PrintVisual(vis, "My first Print job");
             }
         }
-
-
-        
     }
 }
