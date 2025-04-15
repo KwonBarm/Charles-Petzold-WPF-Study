@@ -81,19 +81,69 @@ namespace Petzold.PrintWithMargins
             // 그리드에 레이블과 텍스트 박스 추가
             for (int i = 0; i < 4; i++)
             {
+                Label lbl = new Label();
+                lbl.Content = "_" + Enum.GetName(typeof(Side), i) + ":";
+                lbl.Margin = new Thickness(6);
+                lbl.VerticalAlignment = VerticalAlignment.Center;
+                grid.Children.Add(lbl);
+                Grid.SetRow(lbl, i / 2);
+                Grid.SetColumn(lbl, 2 * (i % 2));
+
                 txtbox[i] = new TextBox();
-                txtbox[i].TextChanged += TextBoxOnTextChanged;
+                txtbox[i].VerticalContentAlignment = VerticalAlignment.Center;
+                txtbox[i].TextChanged += TextBoxOnTextChanged; 
                 txtbox[i].MinWidth = 48;
                 txtbox[i].Margin = new Thickness(6);
                 grid.Children.Add(txtbox[i]);
                 Grid.SetRow(txtbox[i], i / 2);
                 Grid.SetColumn(txtbox[i], 2 * (i % 2) + 1);
             }
+
+            // OK와 Cancel 버튼을 위해 UniformGrid 생성
+            UniformGrid uniformGrid = new UniformGrid();
+            uniformGrid.Rows = 1;
+            uniformGrid.Columns = 2;
+            stack.Children.Add(uniformGrid);
+
+            btnOk = new Button();
+            btnOk.Content = "OK";
+            btnOk.IsDefault = true;
+            btnOk.IsEnabled = false;
+            btnOk.MinWidth = 60;
+            btnOk.Margin = new Thickness(12);
+            btnOk.HorizontalAlignment = HorizontalAlignment.Center;
+            btnOk.Click += OKButtonOnClick;
+            uniformGrid.Children.Add(btnOk);
+
+            Button btnCancle = new Button();
+            btnCancle.Content = "Cancel"; 
+            btnCancle.IsCancel = true; // ShowDialog()로 해당 윈도우를 열면 IsCancel가 true일때 Cancle 버튼을 클릭하면 닫힘
+            btnCancle.MinWidth = 60;
+            btnCancle.Margin = new Thickness(12);
+            btnCancle.HorizontalAlignment = HorizontalAlignment.Center;
+            uniformGrid.Children.Add(btnCancle);
         }
 
+        // 텍스트 박스의 값이 숫자이면 OK 버튼을 활성화
         private void TextBoxOnTextChanged(object sender, TextChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            double result;
+
+            btnOk.IsEnabled =
+                Double.TryParse(txtbox[(int)Side.Left].Text, out result) &&
+                Double.TryParse(txtbox[(int)Side.Right].Text, out result) &&
+                Double.TryParse(txtbox[(int)Side.Top].Text, out result) &&
+                Double.TryParse(txtbox[(int)Side.Bottom].Text, out result);
         }
+
+        // OK를 클릭하면 대화상자를 종료함 
+        private void OKButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            // 모달 창(ShowDialog)에서만 사용 가능
+            // 대화상자를 닫으면서 DialogResult를 true로 설정
+            DialogResult = true;
+        }
+
+       
     }
 }
