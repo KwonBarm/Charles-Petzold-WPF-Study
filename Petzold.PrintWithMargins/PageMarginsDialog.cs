@@ -141,6 +141,7 @@ namespace Petzold.PrintWithMargins
         {
             // 모달 창(ShowDialog)에서만 사용 가능
             // 대화상자를 닫으면서 DialogResult를 true로 설정
+            // ShowDialog()의 반환값
             DialogResult = true;
         }
 
