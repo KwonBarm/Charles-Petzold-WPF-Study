@@ -30,10 +30,10 @@ namespace Petzold.PrintWithMargins
             {
                 return new Thickness
                     (
-                        Double.Parse(txtbox[(int)Side.Left].Text),
-                        Double.Parse(txtbox[(int)Side.Top].Text),
-                        Double.Parse(txtbox[(int)Side.Right].Text),
-                        Double.Parse(txtbox[(int)Side.Bottom].Text)
+                        Double.Parse(txtbox[(int)Side.Left].Text) * 96,
+                        Double.Parse(txtbox[(int)Side.Top].Text) * 96,
+                        Double.Parse(txtbox[(int)Side.Right].Text) * 96,
+                        Double.Parse(txtbox[(int)Side.Bottom].Text) * 96
                     );
             }
         }
@@ -91,7 +91,7 @@ namespace Petzold.PrintWithMargins
 
                 txtbox[i] = new TextBox();
                 txtbox[i].VerticalContentAlignment = VerticalAlignment.Center;
-                txtbox[i].TextChanged += TextBoxOnTextChanged; 
+                txtbox[i].TextChanged += TextBoxOnTextChanged;
                 txtbox[i].MinWidth = 48;
                 txtbox[i].Margin = new Thickness(6);
                 grid.Children.Add(txtbox[i]);
@@ -116,7 +116,7 @@ namespace Petzold.PrintWithMargins
             uniformGrid.Children.Add(btnOk);
 
             Button btnCancle = new Button();
-            btnCancle.Content = "Cancel"; 
+            btnCancle.Content = "Cancel";
             btnCancle.IsCancel = true; // ShowDialog()로 해당 윈도우를 열면 IsCancel가 true일때 Cancle 버튼을 클릭하면 닫힘
             btnCancle.MinWidth = 60;
             btnCancle.Margin = new Thickness(12);
@@ -144,6 +144,6 @@ namespace Petzold.PrintWithMargins
             DialogResult = true;
         }
 
-       
+
     }
 }
