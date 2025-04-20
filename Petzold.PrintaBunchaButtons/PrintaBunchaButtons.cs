@@ -10,8 +10,7 @@ namespace Petzold.PrintaBunchaButtons
         public static void Main()
         {
             Application app = new Application();
-            Window win = new PrintaBunchaButtons();
-            app.Run(win);
+            app.Run(new PrintaBunchaButtons());
         }
 
         public PrintaBunchaButtons()
@@ -20,11 +19,13 @@ namespace Petzold.PrintaBunchaButtons
             SizeToContent = SizeToContent.WidthAndHeight;
             ResizeMode = ResizeMode.CanMinimize;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Width = 400;
+            Height = 300;
 
             // 'Print' 버튼 생성
             Button btn = new Button();
             btn.FontSize = 24;
-            btn.Content = "Print ...";
+            btn.Content = "Print...";
             btn.Padding = new Thickness(12);
             btn.Margin = new Thickness(96);
             btn.Click += PrintOnClick;
@@ -35,7 +36,7 @@ namespace Petzold.PrintaBunchaButtons
         {
             PrintDialog dig = new PrintDialog();
 
-            if (dig.ShowDialog() ?? false)
+            if (dig.ShowDialog().GetValueOrDefault())
             {
                 // 그리드 패널 생성
                 Grid grid = new Grid();
@@ -62,17 +63,17 @@ namespace Petzold.PrintaBunchaButtons
                 for (int i = 0; i < 25; i++)
                 {
                     Button btn = new Button();
-                    btn.FontSize += rand.Next(8);
+                    btn.FontSize = 12 + rand.Next(8);
                     btn.Content = "Button No. " + (i + 1);
                     btn.HorizontalAlignment = HorizontalAlignment.Center;
                     btn.VerticalAlignment = VerticalAlignment.Center;
                     btn.Margin = new Thickness(6);
                     grid.Children.Add(btn);
-                    Grid.SetRow(btn, i % 5);
-                    Grid.SetColumn(btn, i / 5);
+                    Grid.SetRow(btn, i / 5);
+                    Grid.SetColumn(btn, i % 5);
                 }
 
-                // 그리드 크기 결정
+                // 그리드 크기 결정 
                 grid.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
 
                 Size sizeGrid = grid.DesiredSize;
@@ -80,7 +81,7 @@ namespace Petzold.PrintaBunchaButtons
                 // 페이지상의 그리드의 중앙점을 결정
                 Point ptGrid = new Point((dig.PrintableAreaWidth - sizeGrid.Width) / 2, (dig.PrintableAreaHeight - sizeGrid.Height) / 2);
 
-                // 레이아웃을 설정하지 않고 통과
+                // 레이아웃은 설정하지 않고 통과
                 grid.Arrange(new Rect(ptGrid, sizeGrid));
 
                 // 인쇄
