@@ -83,6 +83,13 @@ namespace Petzold.PrintaBunchaButtons
 
                 // 레이아웃은 설정하지 않고 통과
                 grid.Arrange(new Rect(ptGrid, sizeGrid));
+                grid.UpdateLayout();
+
+                //Test Window
+                Window previewWindow = new Window();
+                previewWindow.Content = grid;
+                previewWindow.Show();
+                previewWindow.SizeToContent = SizeToContent.WidthAndHeight;
 
                 // 인쇄
                 dig.PrintVisual(grid, Title);
