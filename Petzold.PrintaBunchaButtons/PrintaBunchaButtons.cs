@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Petzold.PrintaBunchaButtons
 {
@@ -79,17 +80,11 @@ namespace Petzold.PrintaBunchaButtons
                 Size sizeGrid = grid.DesiredSize;
 
                 // 페이지상의 그리드의 중앙점을 결정
-                Point ptGrid = new Point((dig.PrintableAreaWidth - sizeGrid.Width) / 2, (dig.PrintableAreaHeight - sizeGrid.Height) / 2);
+                //Point ptGrid = new Point((dig.PrintableAreaWidth - sizeGrid.Width) / 2, (dig.PrintableAreaHeight - sizeGrid.Height) / 2);
+                Point ptGrid = new Point((dig.PrintableAreaWidth - sizeGrid.Width) / 2, 150);
 
-                // 레이아웃은 설정하지 않고 통과
+                // 레이아웃은 설정하지 않고 통과a
                 grid.Arrange(new Rect(ptGrid, sizeGrid));
-                grid.UpdateLayout();
-
-                //Test Window
-                Window previewWindow = new Window();
-                previewWindow.Content = grid;
-                previewWindow.Show();
-                previewWindow.SizeToContent = SizeToContent.WidthAndHeight;
 
                 // 인쇄
                 dig.PrintVisual(grid, Title);
