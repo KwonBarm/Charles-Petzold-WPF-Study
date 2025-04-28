@@ -62,7 +62,11 @@ namespace Petzold.PrintBanner
                 // 종이의 크기를 기반으로 PageSize 속성을 설정
                 paginator.PageSize = new Size(dig.PrintableAreaWidth, dig.PrintableAreaHeight);
 
-                // Call PrintDocument to Print th document
+                // 내부동작
+                // 1. 먼저 PageCount를 읽음
+                // 2. IsPageCountValie - 페이지 수 믿을만 해?
+                // 3. PageCount만큼 루프를 돌림
+                // 4. 루프안에서 GetPage를 호출 - 그려진 페이지 결과(DocumentPage)를 출력
                 dig.PrintDocument(paginator, "Banner: " + txtBox.Text);
             }
         }
