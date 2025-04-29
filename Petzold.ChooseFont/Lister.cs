@@ -105,6 +105,7 @@ namespace Petzold.ChooseFont
         }
 
         // 선택바를 출력하기 위한 SelectedIndex 프로퍼티
+        // 예를 들어 콤보박스에서 Item 하나 선택 → SelectedIndex에 값 할당으로 Set 실행 → 기존에 선택된 아이템인덱스(indexSelected) Highlight 해제 및 value 할당 → 새로 선택된 아이템 Highlight → ScrollIntoView 메서드 호출하여 스크롤 이동
         public int SelectedIndex
         {
             set
@@ -158,6 +159,7 @@ namespace Petzold.ChooseFont
         // 리스트에서 페이지 업, 페이지 다운하는 Public 메서드
         // ExtentHeight : ScrollViewer의 전체 높이
         // ViewportHeight : ScrollViewer의 보이는 높이
+        // VerticalOffset : ScrollViewer의 현재 스크롤 위치
         public void PageUp()
         {
             if (SelectedIndex == -1 || Count == 0)
@@ -191,15 +193,17 @@ namespace Petzold.ChooseFont
             if (Count == 0 || SelectedIndex == -1 || scroll.ViewportHeight > scroll.ExtentHeight)
                 return;
 
-            double heightPerItem = scroll.ExtentHeight / Count;
-            double offsetItemTop = SelectedIndex * heightPerItem;
-            double offsetItemBot = (SelectedIndex + 1) * heightPerItem;
+            double heightPerItem = scroll.ExtentHeight / Count; // 각 항목의 높이
+            double offsetItemTop = SelectedIndex * heightPerItem; // 선택된 항목의 위쪽 위치
+            double offsetItemBot = (SelectedIndex + 1) * heightPerItem; // 선택한 항목의 아래쪽 위치
 
             // VerticalOffset : ScrollViewer의 현재 스크롤 위치
+            // 현재 스크롤 위치보다 선택된 항목의 위쪽 위치가 작으면 VerticalOffset을 선택된 항목의 위쪽 위치로 설정
             if (offsetItemTop < scroll.VerticalOffset)
                 scroll.ScrollToVerticalOffset(offsetItemTop);
 
-            else if (offsetItemBot > scroll.VerticalOffset)
+            // 현재 스크롤 위치 + VierportHeight 값보다 선택된 항목의 아래쪽 위치가 크면 VerticalOffset을 선택된 항목의 아래쪽 위치로 설정
+            else if (offsetItemBot > scroll.VerticalOffset + scroll.ViewportHeight)
                 scroll.ScrollToVerticalOffset(scroll.VerticalOffset + offsetItemBot - scroll.VerticalOffset - scroll.ViewportHeight);
         }
 
