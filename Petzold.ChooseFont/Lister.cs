@@ -38,6 +38,7 @@ namespace Petzold.ChooseFont
             scroll.Content = stack;
 
             // 마우스 왼쪽 버튼에 대한 핸들러 연결
+            // Lister 컨트럴 전체에 TextBlock이 발생시키는 마우스 좌클릭 이벤트를 처리하라고 설정하고 그 이벤트가 발생하면 TextBlockOnMouseLeftButtonDown 메서드를 호출
             AddHandler(TextBlock.MouseLeftButtonDownEvent, new MouseButtonEventHandler(TextBlockOnMouseLeftButtonDown));
 
             Loaded += OnLoaded;
@@ -90,8 +91,11 @@ namespace Petzold.ChooseFont
 
             for (int i = 0; i < Count; i++)
             {
+                // offset을 이용하여 선택된 항목 다음부터 검색
+                // i가 증가하면서 Index가 증가하며 전체 항목을 순환함
                 int index = (i + offset) % Count;
 
+                // 입력한 문자와 list 항목의 첫 글자가 같으면 index 값을 SelectedIndex에 설정
                 if (Char.ToUpper(ch) == Char.ToUpper(list[index].ToString()[0]))
                 {
                     SelectedIndex = index;
@@ -183,6 +187,7 @@ namespace Petzold.ChooseFont
         // ScrollViewer에서 선택 항목을 스크롤하는 Private 메서드
         private void ScrollIntoView()
         {
+            // scroll.ViewportHeight > scroll.ExtentHeight 스크롤바가 필요 없을 때
             if (Count == 0 || SelectedIndex == -1 || scroll.ViewportHeight > scroll.ExtentHeight)
                 return;
 
