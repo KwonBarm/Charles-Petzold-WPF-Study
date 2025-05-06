@@ -10,6 +10,7 @@ namespace Petzold.ChooseFont
         bool isReadOnly;
 
         // Public 이벤트
+        // SelectionChanged, TextChanged 이벤트를 발생시키기 위한 이벤트 핸들러, 다른 클래스에서 이 이벤트를 구독하여 처리할 수 있도록 함
         public event EventHandler SelectionChanged;
         public event TextChangedEventHandler TextChanged;
 
@@ -45,7 +46,8 @@ namespace Petzold.ChooseFont
             get { return isReadOnly; }
         }
 
-        // Lister 요소의 다른 public 속성 인터페이스
+        // Lister 인스턴스의 SelectedItem과 TextBoxWithLister의 SelectedItem을 연결
+        // SeletedItem이 null이 아니면 TextBox에 선택된 항목을 문자열로 표시, null이면 TextBox를 비움
         public object SelectedItem
         {
             set
@@ -62,6 +64,8 @@ namespace Petzold.ChooseFont
             get { return lister.SelectedItem; }
         }
 
+        // Lister 인스턴스의 SelectedIndex와 TextBoxWithLister의 SelectedIndex를 연결
+        // SeletedIndex가 -1이면 TextBox를 비우고, 그렇지 않으면 TextBox에 선택된 항목을 문자열로 표시
         public int SelectedIndex
         {
             set
@@ -99,7 +103,7 @@ namespace Petzold.ChooseFont
             return lister.Contains(obj);
         }
 
-        // 마우스를 클릭하면 키보드 포커스를 설정
+        // 마우스를 클릭하면 TextBoxWithLister에 키보드 포커스를 설정
         protected override void OnMouseDown(MouseButtonEventArgs e)
         {
             base.OnMouseDown(e);
@@ -111,6 +115,7 @@ namespace Petzold.ChooseFont
         {
             base.OnGotKeyboardFocus(e);
 
+            // 포커스가 TextBoxWithLister에 들어오면 TextBox에 포커스를 설정
             if (e.NewFocus == this)
             {
                 txtbox.Focus();
@@ -168,7 +173,7 @@ namespace Petzold.ChooseFont
             e.Handled = true;
         }
 
-
+        // Lister의 SelectedChanged 이벤트를 처리
         private void ListerOnSelectionChanged(object? sender, EventArgs e)
         {
             if (SelectedIndex == -1)
@@ -179,13 +184,14 @@ namespace Petzold.ChooseFont
             OnSelectionChanged(e);
         }
 
-        
+        // TextBox의 Text가 변경되면 TextChanged 이벤트를 발생시킴
         private void TextBoxOnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextChanged != null)
                 TextChanged(this, e);
         }
 
+        //
         private void OnSelectionChanged(EventArgs e)
         {
             if(SelectionChanged != null)

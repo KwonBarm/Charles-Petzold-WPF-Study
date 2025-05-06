@@ -140,7 +140,7 @@ namespace Petzold.ChooseFont
             get { return indexSelected; }
         }
 
-        // SelectedItem 프로퍼티는 SeletectIndex를 이용
+        // SelectedItem 속성은 SelectedIndex 속성을 사용하여 선택된 항목을 가져오거나 설정하는 속성
         public object SelectedItem
         {
             set
@@ -208,6 +208,7 @@ namespace Petzold.ChooseFont
         }
 
         // 이벤트 핸들러와 트리거
+        // TextBlock 위에서 마우스 왼쪽 버튼 클릭시 이벤트 발생, SeletedIndex에 TextBlock의 인덱스 값을 설정
         private void TextBlockOnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(e.Source is TextBlock)
