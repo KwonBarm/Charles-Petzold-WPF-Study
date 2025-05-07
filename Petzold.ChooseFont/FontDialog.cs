@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -78,6 +77,7 @@ namespace Petzold.ChooseFont
             // 윈도우 Content를 위해 3개 행을 가진 Grid 생성
             Grid gridMain = new Grid();
             Content = gridMain;
+            gridMain.ShowGridLines = true;
 
             // TextBoxWithLister Control을 위한 행
             RowDefinition rowdef = new RowDefinition();
@@ -101,6 +101,72 @@ namespace Petzold.ChooseFont
 
             // TextBoxWithLister Control을 위해 2개 행과 5개 열을 가진 Grid 생성
             Grid gridBoxes = new Grid();
+            gridBoxes.ShowGridLines = true;
+            gridMain.Children.Add(gridBoxes);
+
+            // Label을 위한 행
+            rowdef = new RowDefinition();
+            rowdef.Height = GridLength.Auto;
+            gridBoxes.RowDefinitions.Add(rowdef);
+
+            // EditBoxWithLister Control을 위한 행
+            rowdef = new RowDefinition();
+            rowdef.Height = new GridLength(100, GridUnitType.Star);
+            gridBoxes.RowDefinitions.Add(rowdef);
+
+            // FontFamily를 위한 첫번째 열
+            coldef = new ColumnDefinition();
+            coldef.Width = new GridLength(175, GridUnitType.Star);
+            gridBoxes.ColumnDefinitions.Add(coldef);
+
+            // FontStyle을 위한 두번째 열
+            coldef = new ColumnDefinition();
+            coldef.Width = new GridLength(100, GridUnitType.Star);
+            gridBoxes.ColumnDefinitions.Add(coldef);
+
+            // FontWeight을 위한 세번째 열
+            coldef = new ColumnDefinition();
+            coldef.Width = new GridLength(100, GridUnitType.Star);
+            gridBoxes.ColumnDefinitions.Add(coldef);
+
+            // FontStretch을 위한 네번째 열
+            coldef = new ColumnDefinition();
+            coldef.Width = new GridLength(100,GridUnitType.Star);
+            gridBoxes.ColumnDefinitions.Add(coldef);
+
+            // FontSize을 위한 다섯번째 열
+            coldef = new ColumnDefinition();
+            coldef.Width = new GridLength(75,GridUnitType.Star);
+            gridBoxes.ColumnDefinitions.Add(coldef);
+
+            // TextBoxWithLister Control과 FontFamily Label을 생성
+            Label lbl = new Label();
+            lbl.Content = "Font Family";
+            lbl.Margin = new Thickness(12, 12, 12, 0);
+            gridBoxes.Children.Add(lbl);
+            Grid.SetRow(lbl, 0);
+            Grid.SetColumn(lbl, 0);
+
+            boxFamiliy = new TextBoxWithLister();
+            boxFamiliy.IsReadOnly = true;
+            boxFamiliy.Margin = new Thickness(12, 0, 12, 12);
+            gridBoxes.Children.Add(boxFamiliy);
+            Grid.SetRow(boxFamiliy, 1);
+            Grid.SetColumn(boxFamiliy, 0);
+        }
+
+
+
+        private void OkOnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        [STAThread]
+        public static void Main()
+        {
+            Application app = new Application();
+            app.Run(new FontDialog());
         }
     }
 }
