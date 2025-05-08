@@ -23,7 +23,7 @@ namespace Petzold.ChooseFont
 
             // 상단에 위치할 TextBox
             txtbox = new TextBox();
-            txtbox.TextChanged += TextBoxOnTextChanged;
+            //txtbox.TextChanged += TextBoxOnTextChanged;
             dock.Children.Add(txtbox);
             DockPanel.SetDock(txtbox, Dock.Top);
 
@@ -136,7 +136,7 @@ namespace Petzold.ChooseFont
             }
         }
 
-        // 선택 항목을 변경하기 위해 커서 이동키를 처리
+        // 선택 항목을 변경하기 위해 커서 이동키를 처리, e.Handled를 true로 설정하여 텍스트 박스의 키보드 이벤트를 처리하지 않도록 함
         protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
             base.OnPreviewKeyDown(e);
@@ -168,6 +168,8 @@ namespace Petzold.ChooseFont
                 case Key.PageDown:
                     lister.PageDown();
                     break;
+                default:
+                    return;
             }
 
             e.Handled = true;
