@@ -23,7 +23,7 @@ namespace Petzold.ChooseFont
 
             // 상단에 위치할 TextBox
             txtbox = new TextBox();
-            //txtbox.TextChanged += TextBoxOnTextChanged;
+            txtbox.TextChanged += TextBoxOnTextChanged;
             dock.Children.Add(txtbox);
             DockPanel.SetDock(txtbox, Dock.Top);
 

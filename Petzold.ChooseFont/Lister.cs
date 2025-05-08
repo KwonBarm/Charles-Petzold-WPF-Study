@@ -12,7 +12,7 @@ namespace Petzold.ChooseFont
         ArrayList list = new ArrayList();
         int indexSelected = -1;
 
-        // Public 이벤트
+        // Lister Control에서 항목이 선택되었을 때 발생하는 이벤트
         public event EventHandler SelectionChanged;
 
         // 생성자
@@ -134,7 +134,7 @@ namespace Petzold.ChooseFont
 
                 ScrollIntoView();
 
-                // SelectionChanged 이벤트 트리거
+                // SelectedIndex가 변경되면 OnSelectionChanged 메서드를 호출하고 OnSelectionChanged 메서드는 SelectionChanged 이벤트를 구독하고 있는 핸들러를 호출
                 OnSelectionChanged(EventArgs.Empty);
             }
             get { return indexSelected; }
@@ -179,6 +179,7 @@ namespace Petzold.ChooseFont
                 return;
 
             int index = SelectedIndex + (int)(Count * scroll.ViewportHeight / scroll.ExtentHeight);
+            MessageBox.Show($"{Count}+{scroll.ViewportHeight}+{scroll.ExtentHeight}");
 
             if (index > Count - 1)
                 index = Count - 1;

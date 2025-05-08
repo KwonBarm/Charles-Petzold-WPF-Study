@@ -6,7 +6,7 @@ namespace Petzold.ChooseFont
 {
     internal class FontDialog : Window
     {
-        TextBoxWithLister boxFamiliy, boxStyle, boxWeight, boxStretch, boxSize;
+        TextBoxWithLister boxFamily, boxStyle, boxWeight, boxStretch, boxSize;
         Label lblDisplay;
         bool isUpdateSuppressed = true;
 
@@ -14,10 +14,10 @@ namespace Petzold.ChooseFont
         {
             set
             {
-                if (boxFamiliy.Contains(value.FontFamily))
-                    boxFamiliy.SelectedItem = value.FontFamily;
+                if (boxFamily.Contains(value.FontFamily))
+                    boxFamily.SelectedItem = value.FontFamily;
                 else
-                    boxFamiliy.SelectedIndex = 0;
+                    boxFamily.SelectedIndex = 0;
 
                 if (boxStyle.Contains(value.Style))
                     boxStyle.SelectedItem = value.Style;
@@ -37,7 +37,7 @@ namespace Petzold.ChooseFont
 
             get
             {
-                return new Typeface((FontFamily)boxFamiliy.SelectedItem, (FontStyle)boxStyle.SelectedItem, (FontWeight)boxWeight.SelectedItem, (FontStretch)boxStretch.SelectedItem);
+                return new Typeface((FontFamily)boxFamily.SelectedItem, (FontStyle)boxStyle.SelectedItem, (FontWeight)boxWeight.SelectedItem, (FontStretch)boxStretch.SelectedItem);
             }
         }
 
@@ -147,12 +147,12 @@ namespace Petzold.ChooseFont
             Grid.SetRow(lbl, 0);
             Grid.SetColumn(lbl, 0);
 
-            boxFamiliy = new TextBoxWithLister();
-            boxFamiliy.IsReadOnly = true;
-            boxFamiliy.Margin = new Thickness(12, 0, 12, 12);
-            gridBoxes.Children.Add(boxFamiliy);
-            Grid.SetRow(boxFamiliy, 1);
-            Grid.SetColumn(boxFamiliy, 0);
+            boxFamily = new TextBoxWithLister();
+            boxFamily.IsReadOnly = true;
+            boxFamily.Margin = new Thickness(12, 0, 12, 12);
+            gridBoxes.Children.Add(boxFamily);
+            Grid.SetRow(boxFamily, 1);
+            Grid.SetColumn(boxFamily, 0);
 
             // TextBoxWithLister Control과 FontStyle Label을 생성
             lbl = new Label();
@@ -252,7 +252,7 @@ namespace Petzold.ChooseFont
 
             // 시스템 FontFamily로 FontFamily Box를 초기화
             foreach (FontFamily fam in Fonts.SystemFontFamilies)
-                boxFamiliy.Add(fam);
+                boxFamily.Add(fam);
 
             // FontSize Box를 초기화
             double[] ptsizes = new double[]
@@ -266,30 +266,29 @@ namespace Petzold.ChooseFont
                 boxSize.Add(ptsize);
 
             // EventHandler 연결
-            boxFamiliy.SelectionChanged += FamilyOnSelectionChanged;
+            boxFamily.SelectionChanged += FamilyOnSelectionChanged;
             boxStyle.SelectionChanged += StyleOnSelectionChanged;
             boxWeight.SelectionChanged += StyleOnSelectionChanged;
             boxStretch.SelectionChanged += StyleOnSelectionChanged;
             boxSize.TextChanged += SizeOnTextChanged;
 
-            // 윈도우 프로퍼티를 기반으로 선택 값을 설정
-            // (이 부분은 프로퍼티가 설정되면 오버라이딩됨)
+            // 현재 Windows의 FontFamily, FontStyle, FontWeight, FontStretch, FontSize를 Typeface, FaceSize 속성에 할당
             Typeface = new Typeface(FontFamily, FontStyle, FontWeight, FontStretch);
             FaceSize = FontSize;
 
-            // 키보드 포커스를 설정
-            boxFamiliy.Focus();
+            // boxFamily를 키보드 포커스가 가능하게 하고 포커스를 줌
+            boxFamily.Focus();
 
             // 샘플 텍스트를 수정할 수 있게 함
             isUpdateSuppressed = false;
             UpdateSample();
         }
 
-        // FontFamily Box에 대한 SelectionChanged 이벤트 핸들러
+        // FontFamily Box에서 FontFamily를 선택하면 발생하는 SelectionChanged 이벤트 핸들러
         private void FamilyOnSelectionChanged(object? sender, EventArgs e)
         {
             // 선택한 FontFamily를 구함
-            FontFamily fontFamily = (FontFamily)boxFamiliy.SelectedItem;
+            FontFamily fontFamily = (FontFamily)boxFamily.SelectedItem;
 
             // 이전 스타일, 웨이트, 스트레치를 저장
             // 이 값을 이 메서드가 처음 불릴 때는 null
@@ -370,13 +369,13 @@ namespace Petzold.ChooseFont
             UpdateSample();
         }
 
-        // 샘플 텍스트를 갱신
+        // 샘플 Text를 선택한 FontFamily, FontStyle, FontWeight, FontStretch, FontSize에 맞게 수정
         private void UpdateSample()
         {
             if(isUpdateSuppressed)
                 return;
 
-            lblDisplay.FontFamily = (FontFamily)boxFamiliy.SelectedItem;
+            lblDisplay.FontFamily = (FontFamily)boxFamily.SelectedItem;
             lblDisplay.FontStyle = (FontStyle)boxStyle.SelectedItem;
             lblDisplay.FontWeight = (FontWeight)boxWeight.SelectedItem;
             lblDisplay.FontStretch = (FontStretch)boxStretch.SelectedItem;
