@@ -38,7 +38,7 @@ namespace Petzold.ChooseFont
             scroll.Content = stack;
 
             // 마우스 왼쪽 버튼에 대한 핸들러 연결
-            // Lister 컨트럴 전체에 TextBlock이 발생시키는 마우스 좌클릭 이벤트를 처리하라고 설정하고 그 이벤트가 발생하면 TextBlockOnMouseLeftButtonDown 메서드를 호출
+            // Lister Control안의 TextBlock이 발생시키는 마우스 좌클릭 이벤트를 처리하라고 설정하고 그 이벤트가 발생하면 TextBlockOnMouseLeftButtonDown 메서드를 호출
             AddHandler(TextBlock.MouseLeftButtonDownEvent, new MouseButtonEventHandler(TextBlockOnMouseLeftButtonDown));
 
             Loaded += OnLoaded;
@@ -116,6 +116,10 @@ namespace Petzold.ChooseFont
                 if (value == indexSelected)
                     return;
 
+                // indexSelected 초기값이 -1이므로 IndexSelected에 SelectedIndex값을 할당하고 TextBlock의 배경색과 글자색을 Highlight 색으로 설정
+                // Lister에서 항목을 선택하면 TextOnMouseLeftButtonDown 메서드가 호출되고, 이 메서드에서 SelectedIndex에 TextBlock의 인덱스 값을 설정
+                // SelectedIndex값이 할당되면 기존에 선택된 TextBlock을 indexSelected로 찾아서 배경색과 글자색을 Window 색으로 설정
+                // 그리고 IndexSelected에 선택된 TextBlock의 인덱스 값을 할당하고, 선택된 TextBlock을 Highlight 색으로 설정
                 if (indexSelected != -1)
                 {
                     TextBlock txtblk = stack.Children[indexSelected] as TextBlock;
@@ -203,9 +207,9 @@ namespace Petzold.ChooseFont
             if (offsetItemTop < scroll.VerticalOffset)
                 scroll.ScrollToVerticalOffset(offsetItemTop);
 
-            // 현재 스크롤 위치 + VierportHeight 값보다 선택된 항목의 아래쪽 위치가 크면 VerticalOffset을 선택된 항목의 아래쪽 위치로 설정
+            // 현재 스크롤 위치(VerticalOffset : ViewPort시작지점) + VierportHeight 값보다 선택된 항목의 아래쪽 위치가 크면 VerticalOffset을 선택된 항목의 아래쪽 위치로 설정
             else if (offsetItemBot > scroll.VerticalOffset + scroll.ViewportHeight)
-                scroll.ScrollToVerticalOffset(scroll.VerticalOffset + offsetItemBot - scroll.VerticalOffset - scroll.ViewportHeight);
+                scroll.ScrollToVerticalOffset(offsetItemBot - scroll.ViewportHeight);
         }
 
         // 이벤트 핸들러와 트리거

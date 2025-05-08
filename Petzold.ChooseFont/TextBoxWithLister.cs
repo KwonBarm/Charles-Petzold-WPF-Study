@@ -22,12 +22,14 @@ namespace Petzold.ChooseFont
             Content = dock;
 
             // 상단에 위치할 TextBox
+            // TextBoxOnTextChanged 메서드는 TextChanged 이벤트를 Invoke하므로 FontDialog에서 TextBoxWithLister의 TextChanged 이벤트에 핸들러를 연결
             txtbox = new TextBox();
             txtbox.TextChanged += TextBoxOnTextChanged;
             dock.Children.Add(txtbox);
             DockPanel.SetDock(txtbox, Dock.Top);
 
             // DockPanel의 나머지에 Lister를 추가
+            // ListerOnSelectionChanged는 SelectionChanged 이벤트를 Invoke하므로 FontDialog에서 TextBoxWithLister의 TextChanged 이벤트에 핸들러를 연결
             lister = new Lister();
             lister.SelectionChanged += ListerOnSelectionChanged;
             dock.Children.Add(lister);
@@ -46,8 +48,8 @@ namespace Petzold.ChooseFont
             get { return isReadOnly; }
         }
 
-        // Lister 인스턴스의 SelectedItem과 TextBoxWithLister의 SelectedItem을 연결
-        // SeletedItem이 null이 아니면 TextBox에 선택된 항목을 문자열로 표시, null이면 TextBox를 비움
+        // Lister 인스턴스의 SelectedItem 속성과 TextBoxWithLister의 SelectedItem 속성을 연결
+        // SeletedItem이 null이 아니면 TextBox에 선택된 항목을 TextBox에 문자열로 표시, null이면 TextBox를 비움
         public object SelectedItem
         {
             set
