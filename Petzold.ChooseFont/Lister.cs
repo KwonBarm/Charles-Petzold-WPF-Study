@@ -98,6 +98,8 @@ namespace Petzold.ChooseFont
                 // 입력한 문자와 list 항목의 첫 글자가 같으면 index 값을 SelectedIndex에 설정
                 if (Char.ToUpper(ch) == Char.ToUpper(list[index].ToString()[0]))
                 {
+                    MessageBox.Show($"{Count} / {ch} / {offset} / {index} / SelectedIndex : {SelectedIndex}");
+                    MessageBox.Show(index.ToString());
                     SelectedIndex = index;
                     break;
                 }
