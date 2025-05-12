@@ -322,6 +322,8 @@ namespace Petzold.ChooseFont
                 {
                     if(familyTypeface.Weight == FontWeights.Normal)
                         boxWeight.Insert(0, familyTypeface.Weight);
+                    else
+                        boxWeight.Add(familyTypeface.Weight);
                 }
 
                 // boxStretch에 스트레치를 추가(Normal이 가장 상위에 위치)
