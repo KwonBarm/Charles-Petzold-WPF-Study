@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace Petzold.ChooseFont
 {
-    internal class FontDialog : Window
+    public class FontDialog : Window
     {
         TextBoxWithLister boxFamily, boxStyle, boxWeight, boxStretch, boxSize;
         Label lblDisplay;
