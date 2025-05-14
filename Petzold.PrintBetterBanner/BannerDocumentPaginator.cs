@@ -34,12 +34,13 @@ namespace Petzold.PrintBanner
         }
 
         // PageCount가 확정됐는지 여부를 나타내는 속성
+        // IsPageCountValid 속성은 WPF 시스템이 먼저 호출하여 페이지 수를 결정하는 데 사용
         public override bool IsPageCountValid
         {
             get
             {
-
-                // 100em 사이즈를 기반으로 문자의 최대 크키를 결정
+                // 입력한 텍스트에서 문자를 하나씩 꺼내서 FormattedText 객체를 생성
+                // sizeMax에 문자 크기를 반복 비교 및 저장함으로써 최대 크기를 구함
                 foreach (char ch in txt)
                 {
                     FormattedText formtxt = GetFormattedText(ch, face, 100);
@@ -72,6 +73,7 @@ namespace Petzold.PrintBanner
             // em 사이즈의 factor를 계산할 때 1/2인치 여백을 가정
             double factor = Math.Min((PageSize.Width - 96) / sizeMax.Width, (PageSize.Height - 96) / sizeMax.Height);
 
+            // FormattedText formtxt = GetFormattedText(txt[numPage], face, factor * 100);
             FormattedText formtxt = GetFormattedText(txt[numPage], face, factor * 100);
 
             // 페이지 중앙에 위치할 수 있도록 위치를 조정
