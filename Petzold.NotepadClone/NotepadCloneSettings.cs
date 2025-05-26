@@ -8,7 +8,7 @@ namespace Petzold.NotepadClone
     {
         // 기본 설정
         public WindowState WindowState = WindowState.Normal;
-        public Rect RestoreBound = Rect.Empty;
+        public Rect RestoreBounds = Rect.Empty;
         public TextWrapping TextWrapping = TextWrapping.NoWrap;
         public string FontFamily = "";
         public string FontStyle = new FontStyleConverter().ConvertToString(FontStyles.Normal);
@@ -35,7 +35,8 @@ namespace Petzold.NotepadClone
             return true;
         }
 
-        // 설정을 파일에서 불러들임
+        // type - 역직렬화할 객체의 타입
+        // strAppData - XML 파일 경로
         public static object Load(Type type, string strAppData)
         {
             StreamReader reader;
