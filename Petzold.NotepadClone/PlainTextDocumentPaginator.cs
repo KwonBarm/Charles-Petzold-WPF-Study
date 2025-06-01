@@ -61,7 +61,6 @@ namespace Petzold.NotepadClone
             get { return txtHeader; }
         }
 
-
         public override bool IsPageCountValid
         {
             get
@@ -132,10 +131,87 @@ namespace Petzold.NotepadClone
 
             string strLine;
             Pen pn = new Pen(Brushes.Black, 2);
-            StringReader reader = new StringReader(txt); // 
+            StringReader reader = new StringReader(txt);
+
+            // listLines에 각 줄을 저장하기 위해 ProcessLine을 호출
+            while (null != (strLine = reader.ReadLine()))
+                ProcessLine(strLine, width, listLines);
         }
 
+        // str - txt에서 읽어온 한 줄
+        // width - 페이지 폭
+        // list - PrintLine 객체를 저장할 리스트
+        private void ProcessLine(string str, double width, List<PrintLine> list)
+        {
+            str = str.TrimEnd(' '); // 문자열의 끝에 있는 공백 제거
 
+            // TextWrapping == TextWrapping.NoWrap인 경우
+            // ------------------------------------------
+            if(TextWrapping == TextWrapping.NoWrap)
+            {
+                do
+                {
+                    int length = str.Length;
+
+                    // 문자열의 폭이 width(페이지 폭)보다 작거나 같을 때까지 문자열의 길이값을 줄임
+                    while (GetFormattedText(str.Substring(0, length)).Width > width)
+                        length--;
+
+                    // width(페이지 폭)만큼 문자열을 잘라서 PrintLine 객체에 저장
+                    // 그리고 나머지 문자열을 str에 저장
+                    list.Add(new PrintLine(str.Substring(0, length), length < str.Length));
+                    str = str.Substring(length); // str에서 시작부터 length 길이만큼 잘라냄
+                }
+                while (str.Length > 0);
+            }
+
+            // TextWrapping == TextWrapping.Wrap인 경우 또는
+            // TextWrapping == TextWrapping.WrapWithOverflow인 경우
+            // ---------------------------------------------------
+            else
+            {
+                do
+                {
+                    int length = str.Length;
+                    bool flag = false;
+
+                    while (GetFormattedText(str.Substring(0, length)).Width > width)
+                    {
+                        // LastIndexOfAny는 인수 charsBreaks 문자배열 중 가장 마지막에 나타나는 문자의 인덱스를 반환
+                        int index = str.LastIndexOfAny(charsBreaks, length - 2);
+
+                        // index가 -1이 아니면 공백이나 대시가 있는 위치를 찾았다는 의미
+                        if (index != -1)
+                            length = index + 1; // 공백이나 대시를 포함
+                        else
+                        {
+                            // 특정 여역 내에서 공백이나
+                            // 대시가 들어갈 수도 있다는 점을 기억할 것
+                            // 공백이나 대시가 있는지를 검사
+                            index = str.IndexOfAny(charsBreaks);
+
+                            if (index != -1)
+                                length = index + 1;
+
+                            // TextWrapping == TextWrapping.WrapWithOverflow이면 단순히 줄을 출력
+                            // TextWrapping == TextWrapping.Wrap이면 플래그를 설정하고 루프 탈출
+                            if (TextWrapping == TextWrapping.Wrap)
+                            {
+                                while(GetFormattedText(str.Substring(0, length)).Width > width)
+                                    length--;
+
+                                flag = true; // 줄이 잘렸음을 알림
+                            }
+                            break; // 루프 탈출
+                        }
+                    }
+
+                    list.Add(new PrintLine(str.Substring(0, length), flag));
+                    str = str.Substring(length); // str에서 시작부터 length 길이만큼 잘라냄
+                }
+                while (str.Length > 0);
+            }
+        }
 
         // FormattedText 객체를 생성하는 메서드
         private FormattedText GetFormattedText(string str)
