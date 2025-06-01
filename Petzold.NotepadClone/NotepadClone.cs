@@ -70,7 +70,7 @@ namespace Petzold.NotepadClone
             statLineCol = new StatusBarItem();
             statLineCol.HorizontalAlignment = HorizontalAlignment.Right;
             status.Items.Add(statLineCol);
-            DockPanel.SetDock(statLineCol, Dock.Right);
+            //DockPanel.SetDock(statLineCol, Dock.Right);
 
             // 클라이언트 영역의 남은 부분을 채울 TextBox를 생성
             txtbox = new TextBox();

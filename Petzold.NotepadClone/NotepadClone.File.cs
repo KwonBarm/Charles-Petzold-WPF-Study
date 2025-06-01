@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -49,7 +48,7 @@ namespace Petzold.NotepadClone
 
             // 구분자와 인쇄 항목
             itemFile.Items.Add(new Separator());
-            //AddPrintMenuItems(itemFile);
+            AddPrintMenuItems(itemFile);
             itemFile.Items.Add(new Separator());
 
             // Exit 메뉴 항목
@@ -74,13 +73,13 @@ namespace Petzold.NotepadClone
         // File Open 커맨드 : 대화상자를 출력하고 파일을 로딩
         private void OpenOnExecute(object sender, ExecutedRoutedEventArgs e)
         {
-            if(!OkToTrash())
+            if (!OkToTrash())
                 return;
 
             OpenFileDialog dig = new OpenFileDialog();
             dig.Filter = strFilter;
 
-            if(dig.ShowDialog(this) == true)
+            if (dig.ShowDialog(this) == true)
             {
                 LoadFile(dig.FileName); // FileName : OpenFileDialog에서 선택한 파일의 전체 경로
             }
